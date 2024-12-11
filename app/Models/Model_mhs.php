@@ -10,6 +10,7 @@
 
     class Model_mhs
     {
+        protected $dbh;
         public function __construct()
         {
             $db = new Database();
