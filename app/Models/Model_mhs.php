@@ -36,4 +36,16 @@
             $rs->execute([$id]);
             return $rs->fetch();// kalau hasil query hanya satu, gunakan method fetch() bawaan PDO
         }
+
+        function updateData($id, $nim, $nama)
+        {
+            $rs = $this->dbh->prepare("UPDATE mahasiswa SET nim=?, nama=? WHERE id=?");
+            $rs->execute([$nim, $nama, $id]);
+        }
+
+        function hapusData($id)
+        {
+            $rs = $this->dbh->prepare("DELETE FROM mahasiswa WHERE id=?");
+            $rs->execute([$id]);
+        }
     }
